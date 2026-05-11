@@ -5,7 +5,10 @@ import { SqrtCalculator } from "../sqrt-calculator.class";
 // Mock implementation of SqrtAlgorithm for testing
 class MockSqrtAlgorithm extends SqrtAlgorithm {
 	protected approximateGuess(): number {
-		// Simple mock implementation that returns the square root
+		// Return 0 for non-positive numbers, otherwise return the square root
+		if (this.number <= 0) {
+			return 0;
+		}
 		return Math.sqrt(this.number);
 	}
 }
@@ -22,7 +25,7 @@ describe("SqrtCalculator", () => {
 		const testCases = [
 			{ input: 4, expected: 2 },
 			{ input: 9, expected: 3 },
-			{ input: 16, expected: 4 },
+			{ input: 16, expected: 4 }
 		];
 
 		testCases.forEach(({ input, expected }) => {
