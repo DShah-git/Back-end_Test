@@ -10,4 +10,10 @@
 
 4. In test cases, I see that I need to return 0 for negative inputs.
 
-5.
+5. Using copilot for Prisma/SQLite installation
+   a. Models created in schema.prisma
+   b. data in file:dev.db
+   c. prisma studio for validation
+
+6. Issues with initializing prisma client in util/database.ts.
+   a. Used PrismaBetterSqlite3 to override whatever copilot wrote in database.ts

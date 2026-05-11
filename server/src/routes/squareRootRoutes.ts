@@ -4,6 +4,7 @@ import { z } from "zod";
 
 import { ServiceResponse } from "@/common/models/serviceResponse";
 import { calculateSqrtAsync } from "@/common/utils/squareRootUtils";
+import { prisma } from "@/common/utils/database";
 
 const router = Router();
 
@@ -45,11 +46,21 @@ router.post(
         try {
             const result = await calculateSqrtAsync(input);
 
+
+            const calculation = await prisma.calculation.create({
+                data: {
+                    input,
+                    result,
+                },
+            });
+
             const successResponse = ServiceResponse.success(
                 `Square root of ${input} calculated successfully`,
                 {
+                    id: calculation.id,
                     input,
-                    result
+                    result,
+                    createdAt: calculation.createdAt.toISOString(),
                 },
                 StatusCodes.OK,
             );
