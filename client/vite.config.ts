@@ -7,10 +7,11 @@ export default defineConfig({
 	plugins: [react(), tsconfigPaths()],
 	server: {
 		proxy: {
-			// Avoid CORS during local dev; server defaults to localhost:8080 (.env.template)
-			"/square-root": {
+			// Proxy all API calls to the backend server and strip the /api prefix
+			"/api": {
 				target: process.env.VITE_DEV_PROXY_TARGET ?? "http://localhost:8080",
 				changeOrigin: true,
+				rewrite: (path) => path.replace(/^\/api/, ""),
 			},
 		},
 	},
