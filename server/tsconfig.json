@@ -4,8 +4,15 @@
 		"module": "CommonJS",
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["src/*"],
-			"@shared/*": ["../shared/*"]
+			"@/*": [
+				"src/*"
+			],
+			"@shared/*": [
+				"../shared/*"
+			],
+			"@generated/*": [
+				"./generated/*"
+			]
 		},
 		"moduleResolution": "Node",
 		"outDir": "dist",
@@ -14,8 +21,16 @@
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
-		"types": ["vitest/globals"]
+		"types": [
+			"vitest/globals"
+		]
 	},
-	"include": ["src/**/*", "../shared/**/*"],
-	"exclude": ["node_modules"]
+	"include": [
+		"src/**/*",
+		"../shared/**/*",
+		"generated/**/*"
+	],
+	"exclude": [
+		"node_modules"
+	]
 }

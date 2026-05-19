@@ -10,5 +10,8 @@
 	},
 	"[github-actions-workflow][markdown][xml][yaml]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
 	}
 }
